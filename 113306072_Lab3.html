@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            .pgtitle{
+                font-family: 'Times New Roman', Times, serif;
+                font-weight: 900;
+                font-size: larger;
+            }
+            
+        </style>
+    </head>
+    <body>
+        <div class = "pgtitle">
+            <h1>113306072_Number Guessing Game</h1>
+            <img src= "" id ="image">
+        </div>
+        <script>
+            var i,ct=7,ans,d1=1,d2=100;
+            ans = Math.floor(Math.random()*100+1);
+            if(ans<=1){
+                ans += 1;
+            }
+            const cor = "./pic/wrong.jpg";
+            const image = document.getElementById("image");
+            image.src = cor;
+            while(ct>0){
+                i = window.prompt('請輸入'+d1+'~'+d2+'之間的數字\n還剩下'+ct+'次機會');
+                ct--;
+                if(ans == i){
+                    alert('恭喜你答對了!');
+                    const cor = "./pic/correct.jpg";
+                    const image = document.getElementById("image");
+                    image.src = cor;
+                    break;
+                }
+                else if(isNaN(i)||i>100||i<1){
+                    alert('請輸入有效範圍內的數字!(不能選擇範圍的上下限)');
+                }
+                else if(i>ans){
+                    d2 = i;
+                }
+                else if(i<ans){
+                    d1 = i;
+                }
+            }
+            
+        </script>
+    </body>
+</html>
